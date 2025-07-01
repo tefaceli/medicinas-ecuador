@@ -4,7 +4,7 @@ This is a repository that includes an analysis of public procurement for the pur
 
 The goal of this project is to understand how corporate purchasing is functioning in Ecuador. For context, in 2022 the government launched this mechanism to centralize the procurement of medicines for the entire public health system, including social security institutions. 
 
-A total of 777 medicines, in various concentrations and commercial presentations (the most commonly prescribed by doctors), were selected for this centralized procurement mechanism. These medicines were included in an official catalog. For the purposes of this analysis, each unique combination of medicine, concentration and presentation will be referred to as an "item."
+A total of 830 medicines, in various concentrations and commercial presentations (the most commonly prescribed by doctors), were selected for this centralized procurement mechanism. These medicines were included in an official catalog. For the purposes of this analysis, each unique combination of medicine, concentration and presentation will be referred to as an "item."
 
 The analysis conducted in this project revealed several key findings:
 1. Procurement processes were launched between 2022 and 2023, during the administration of former President Guillermo Lasso. Under the current government, no new processes have been initiated.
