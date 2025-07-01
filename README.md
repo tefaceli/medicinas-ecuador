@@ -22,9 +22,9 @@ This was done in two Jupyter Notebooks:
 1. The first one includes the scraper for the [SERCOP website](https://modulocomprascorporativas.compraspublicas.gob.ec/ProcesoContratacion/compras/PC/buscarProceso.cpe?sg=1#), used to compile all procurement processes and build a database.
 2. The second notebook was used for data cleaning and analysis of the scraped data, dividing the items into two categories: those with awarded contracts and those without.
 
-This project is a first exploration of how public procurement of medicines functions within Ecuador’s public healthcare system. However, it still requires more work to have a complete picture of how the corporate purchase mechanism is funtioning. Future steps include:
+This project is a first exploration of how public procurement of medicines functions within Ecuador’s public healthcare system. However, it still requires more work to have a complete picture of how it is funtioning. Future steps include:
 - A new scraper to loop through each process and get information about the supplier, the budget and the quatities of the awarded contracts.
-- Further analysis on the medicines that didn't get contracts awarded, to see if there is some kind of pattern.
+- Further analysis on the medicines that didn't get contracts awarded, to see if there is a pattern.
 - Merging the awarded contracts database with another dataset containing the delivery orders for each item.
 
 This project was developed as part of the LEDE Program, at Columbia Journalism School.
