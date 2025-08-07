@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+            <title>Resumen de Puja</title>
+            
+            <script type="text/javascript" src="../js/lib/prototype.js"></script>
+            <script type="text/javascript" src="../js/util/presentacionjs.js"></script>
+            <script type="text/javascript" src="../js/util/validar.js"></script>
+            <script type="text/javascript" src="../js/util/validarFormatos.js"></script>
+            
+            <link href="../css/estiloTabla.css" rel="stylesheet" type="text/css">
+                <script>
+                    function abrir(id_soli_compra)
+                    {
+                        window.open('resumenPrint.cpe?id=' + id_soli_compra);
+                    }
+                    function btnRegresar(idSoliCompra, ext, extphp)
+                    {
+                                                    $('frmResultadoPuja').action = '../' + ext + '/informacionProcesoContratacion2.' + extphp + '?idSoliCompra=' + idSoliCompra;
+                                                window.document.frmResultadoPuja.submit();
+                    }
+                </script>
+                
+             <link href="/ProcesoContratacion/app/webroot/compras/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<script type="text/javascript" src="/ProcesoContratacion/app/webroot/compras/js/menu.js.php?animated=Fx.Transitions.Bounce.easeOut"></script>
+<link href="/ProcesoContratacion/app/webroot/compras/css/estilos.css" rel="stylesheet" type="text/css">
+<link href="/ProcesoContratacion/app/webroot/compras/css/estilos_print.css" rel="stylesheet" type="text/css" media="print">
+<link href="/ProcesoContratacion/app/webroot/compras/css/formulario.css" rel="stylesheet" type="text/css">
+<link href="/ProcesoContratacion/app/webroot/compras/css/menuBotones.css" rel="stylesheet" type="text/css">
+<link href="/ProcesoContratacion/app/webroot/compras/css/login.css" rel="stylesheet" type="text/css">
+<link href="../css/estiloBoton.css" rel="stylesheet" type="text/css">
+<!--[if IE]>
+<link href='../css/estilosIE.css' rel='stylesheet' type='text/css'>
+<![endif]-->
+<script type="text/javascript" src="/ProcesoContratacion/app/webroot/compras/js/lib/prototype.js"></script>
+<script type="text/javascript" src="/ProcesoContratacion/app/webroot/compras/js/util/reloj.js"></script>
+<script type="text/javascript" src="/ProcesoContratacion/app/webroot/compras/js/lib/overlib.js"></script>
+<script type="text/javascript" src="/ProcesoContratacion/app/webroot/compras/js/indexV1_2.js?1752295646">
+</script>
+<script language="JavaScript" type="text/javascript">
+    /*****INICIO eliminacion de sesiones caundo se cierra la ventana del navegador***************************************************************/
+    /*Navegadores probados: Internet Explorer, Firefox
+     **/
+    function HandleOnCloseWindow() {
+        //   document.location='/ProcesoContratacion/app/webroot/compras/exe/logout_exe.php?CERRAR=SI';
+    }
+    window.onbeforeunloads = HandleOnCloseWindow;
+    /*****FIN eliminacion de sesiones caundo se cierra la ventana del navegador***************************************************************/
+    function HandleOnClose() {
+        document.location = '/ProcesoContratacion/app/webroot/compras/exe/logout_exe.php';
+    }
+    function HandleOnHome(tipo) {
+        if (tipo == "Empresa") {//vERIFIACR ESTO, PUES LOS PROVEEDORES QUE NO ESTAN ACTIVADOS NO PUEDEN VER ESTA PAGINA
+            document.location = '/ProcesoContratacion/app/webroot/compras/invitaciones/ReporteInvitacionesProveedor10Recientes.php';
+        } else if (tipo == "Entidad") {
+            document.location = '/ProcesoContratacion/app/webroot/compras/Empresa/home.php';
+        }
+    }
+    Object.extend(document, {
+        isDocReady: false,
+        isDocLoaded: false,
+        ready: function (fn) {
+            Event.observe(document, "doc:ready", fn);
+        },
+        load: function (fn) {
+            Event.observe(document, "doc:loaded", fn);
+        }
+    });
+    Event.observe(document, "dom:loaded", function () {
+        Event.fire(document, "doc:ready");
+        document.isDocReady = true;
+        if (document.isDocLoaded)
+            Event.fire(document, "doc:loaded");
+    });
+    Event.observe(window, "load", function () {
+        document.isDocLoaded = true;
+        if (!document.isDocReady)
+            return;
+        Event.fire(document, "doc:loaded");
+    });
+</script>
+<style>
+    #loading {
+        position: fixed;
+        overflow-y: scroll;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        z-index:10000;
+        background-color:RGBA(33, 33, 33,0.5); 
+        background:RGBA(33, 33, 33,0.5) url('../img/cargandolog.gif') center center no-repeat;
+    }
+</style>
+<!-- script para bloqueo de boton derecho -->
+<script language="Javascript">
+//document.oncontextmenu = function(){return false}
+</script>
+
+
+<!--<div id="loading" style="display:none">
+    <div style="background-color: whitesmoke; position: absolute; top: 0px; right: 0px; width: 5px; height: 5px; cursor:pointer;"
+         onclick=""></div>
+</div>-->
+
+</head><body class="cuerpo"><div class="fondoNormal" align="center" id="contenedor" width="100%">
+    <div id="header">
+        <div class="main">
+            <h1>Sistema Oficial de Contratación Pública</h1>
+        </div>
+    </div>
+    <div id="top2">
+        <div class="main">
+            <ul id="fecha-hora">
+                <li><div id="divReloj" align="center">Viernes, 11 de Julio del 2025 23:47 | GMT-5 | Quito-Ecuador </div></li>
+            </ul>
+            <ul id="user-data">
+                <!--         
+<li><form method="post" name="frmCabecera" style="height: 17px">
+                    <select id="cmbIdioma" name="cmbIdioma" onchange="form.submit()" style="height: 17px">
+                        <option value="-">Idioma/Language</option>
+                        <option value="en_US">English</option>
+                        <option value="es_ES">Espa&ntilde;ol</option>
+                    </select>
+                    </form> </li>  
+                
+               
+                    <script language="javascript">
+                        document.getElementById("cmbIdioma").value = "";//Para que el idioma quede establecido en el combo box
+                        //Se habilita control ComboBox de idioma en la primera pagina
+                    </script> 
+-->
+                <li><span><a href="//modulocomprascorporativas.compraspublicas.gob.ec/ProcesoContratacion/compras/" class="opciones">[ Ingresar al Sistema ]</a> </span></li>             </ul>
+        </div>
+    </div>
+    <div id="top">
+        <div class="main">
+
+<link href="/ProcesoContratacion/app/webroot/compras/css/estiloMenu2.css" rel="stylesheet" type="text/css">
+
+				<div style="clear: both;"></div>
+								<div id="tpmenu">
+							<div class="moduletable">
+<div id="tp-mainnavwrap"><div id="tp-mainnav" class="clearfix">
+<ul class="clearfix" id="tp-cssmenu">
+</ul>
+</div></div>		</div>
+						</div>
+                                <div class="colorful"></div>
+
+
+        </div>
+    </div>
+    <div class="tituloFondoClaro" align="left"> »Resumen del Proceso de Contratación </div>
+   <!--</body>-->
+   
+        <script language="javascript">
+            //servertimestring= '';   //Carga la hora del servidor con la que va a iniciar el reloj
+            //new showLocalTime("divReloj", 0, "larga");
+            servertimestring = new Date(2025,7-1,11,23,47,26);
+            sigueNad(servertimestring, 'divReloj');
+        </script>
+        <div class="barrita"><div class="central">  
+              
+                
+            <script type="text/javascript" src="../js/util/jquery.min.js"></script>
+            <script type="text/javascript" src="../js/util/exporting.js"></script>
+            <script type="text/javascript" src="../js/util/highcharts.js"></script>
+            
+            
+            
+            
+            <script type="text/javascript">
+            $(function () {
+    $('#container_sicm').highcharts({
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: '<b> Resumen PUJA </b>'
+        },
+        subtitle: {
+            text: 'SICM-210-2022'
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: { // don't display the dummy year
+                month: '%e. %b',
+                year: '%b'
+            },
+            title: {
+                text: 'Tiempo'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Oferta ($)'
+            },
+            min: 0.336000        },
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: '{point.x:%e. %b}: {point.y:.5f} $'
+        },
+
+        plotOptions: {
+            spline: {
+                marker: {
+                    enabled: true
+                }
+            }
+        },
+
+        series: [{ name: 'PHARMABRAND S.A.', data: [[Date.UTC(2022,4,30,10,49,2), 1.737120],[Date.UTC(2022,4,30,10,54,54), 1.386000],[Date.UTC(2022,4,30,10,55,26), 1.293600],[Date.UTC(2022,4,30,10,59,51), 0.336000]] }, { name: 'HERLINGEN CIA. LTDA.', data: [[Date.UTC(2022,4,30,10,52,0), 2.150000],[Date.UTC(2022,4,30,10,53,51), 2.130000],[Date.UTC(2022,4,30,10,56,56), 2.020000],[Date.UTC(2022,4,30,10,59,52), 1.439000],[Date.UTC(2022,4,30,10,59,56), 1.189000]] }, { name: 'MEDIKACARE CIA.LTDA.', data: [[Date.UTC(2022,4,30,10,59,50), 1.710000],[Date.UTC(2022,4,30,10,59,54), 1.670000],[Date.UTC(2022,4,30,10,59,56), 1.600000]] }, { name: 'OFTALVIS S.A.', data: [[Date.UTC(2022,4,30,10,45,58), 2.156200],[Date.UTC(2022,4,30,10,49,45), 2.134420],[Date.UTC(2022,4,30,10,50,15), 2.112640],[Date.UTC(2022,4,30,10,50,54), 2.090000]] }, { name: 'GYKORMED S.A.', data: [[Date.UTC(2022,4,30,10,59,52), 2.156200]] } ]
+    });
+    $('#container_oei').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '<b> Oferta Económica Inicial </b>'
+        },
+        subtitle: {
+            text: 'SICM-210-2022'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '10px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Oferta ($)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Oferta Economica Inicial: <b>{point.y:.5f} ($)</b>'
+        },
+        series: [{ name: 'OEI', data: [['PHARMABRAND S.A.',2.178000],['HERLINGEN CIA. LTDA.',2.178000],['MEDIKACARE CIA.LTDA.',2.178000],['OFTALVIS S.A.',2.178000],['GYKORMED S.A.',2.178000]]    
+                    ,
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.5f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '8px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    }); 
+});
+
+
+            </script>
+            
+            
+                <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+                    <link href="../css/formulario.css" rel="stylesheet" type="text/css">
+                        <link href="../css/reportes.css" rel="stylesheet" type="text/css">
+                            <link href="../css/pujas.css" rel="stylesheet" type="text/css">
+                                <link href="../css/estiloBoton.css" rel="stylesheet" type="text/css">
+                                    <style type="text/css">
+                                        <!--
+                                        .Estilo1 {font-size: 12px}
+                                        -->
+                                    </style>
+                                   
+                                    
+                                     
+                                    
+                                        <form id="frmResultadoPuja" name="frmResultadoPuja" method="post" action="">
+                                            <table><tbody><tr>
+                                                    <td idth="100%" align="right"> <input type="hidden" name="version" id="version" value="2">
+                                                                                                                </td><td>
+                                                            <div class="buttons">
+<!--                                                                <a href="#" onClick="btnRegresar('QxNrLqjFgUe65hGuCjQRLLh47cgraWTTYRF9H0FCu74,', 'PC', 'cpe')">
+                   <img src="../img/icon-back.png " />Regresar                                                                </a>-->
+                                                             <a href="informacionProcesoContratacion2.cpe?idSoliCompra=IYri9KmwTlPplWID0eV5Z0LXO_qMvCZrmvM-iNYxwQ0,"> 
+                                                                 <img src="../img/icon-back.png "> Regresar
+                                                             </a>    
+<!--                                                                 ProcesoContratacion/app/webroot/compras/PC/informacionProcesoContratacion2.cpe
+                                                                 ../" . DIRPC . "/informacionProcesoContratacion" . $version . "." . DIR_EXT . "?idSoliCompra=" . encrip($idSoliCompra)-->
+                                                                
+                                                                
+                                                                
+                                                            </div>
+
+                                                        </td><td>
+                                                            <div class="buttons" style="display: none">
+                                                                <a href="#" onclick="abrir('-AjVkMTBJJUZXhTQoyy-85hB9UJPSRBgXMYYbUM9rxM,')">
+                                                                    <img src="../img/icon-print.png">Imprimir                                                                                                                   </a>
+                                                            </div>
+                                                        </td>
+                                                </tr>
+                                            </tbody></table>
+                                                                                        <p></p>
+                                            <p></p>
+                                            <p align="center" class="tituloAzulPq">Resumen de Puja </p>
+                                            <table width="100%" border="1" cellspacing="0" cellpadding="3">
+                                                <tbody><tr>
+                                                    <td colspan="3" class="tituloAzulPq">Proceso de Contratación </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                    <td width="31%" class="filaTitulo"><span class="textoAzul12">Entidad Contratante </span></td>
+                                                    <td width="67%" class="cuadroIngresoBA">
+                                                        SERVICIO NACIONAL DE CONTRATACION PUBLICA</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td class="filaTitulo"><span class="textoAzul12">Objeto de Proceso de Contratación </span></td>
+                                                     <td class="cuadroIngresoBA">DCI: LATANOPROST - FORMA FARMACÉUTICA: LÍQUIDO OFTÁLMICO - CONCENTRACIÓN: 0,005 % - PRESENTACIÓN COMERCIAL: CAJA X FRASCO GOTERO X 2,5 ML MÍNIMO</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                 <td class="filaTitulo"><div id="div" class="textoAzul12">Código</div></td>
+                                                    <td class="cuadroIngresoBA">SICM-210-2022      </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td class="filaTitulo"><div id="div" class="textoAzul12">Variación Minima Oferta</div></td>
+                                                       <td class="cuadroIngresoBA">1 %</td>
+                                                </tr>
+                                                <tr>
+                                                   <td>&nbsp;</td>
+                                                    <td class="filaTitulo"><div id="div" class="textoAzul12">Tipo de Variación</div></td>
+                                                    <td class="cuadroIngresoBA">Precio unitario</td>
+                                                </tr>
+                                            </tbody></table>
+                                        <input type="hidden" name="as_sfid" value="AAAAAAW8Zsn-I2mZdtD2OzAIXX43-1fhWL0lewN5aLz1IxT1Vort2HvD4uYTzbbwgDi2VzRY0wRjuYAFtlGQZ36la0lb24K20qGGpwgeMDrf07cbNvTi1lKek_wvEL1ei4j5Or7NEhCsfgXk1Yc5XxSAvq0fOr-WVdOnrHeNgKb2EaT34g=="><input type="hidden" name="as_fid" value="857a399b62aee2cc128e07556532b201b39e6281"></form>
+                                        <br>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                            <tbody><tr>
+                                                <td colspan="3" class="tituloAzulPq">Detalle del Proceso de Contratación </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="filaTitulo"><span class="textoAzul12">Tipo de Compra</span></td>
+                                                <td class="cuadroIngresoBA">Medicamentos</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="filaTitulo"><span class="textoAzul12">Tipo de Contratación</span></td>
+                                                <td class="cuadroIngresoBA">Subasta Inversa Corporativa</td>
+                                            </tr>
+                                            <tr>
+                                                <!-- <td>&nbsp;</td>
+                                                 <td class="filaTitulo" ><span class="textoAzul12">Vigencia de Oferta </span></td> 
+                                                <td class="cuadroIngresoBA" >1 d&iacute;as</td> -->
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="filaTitulo" ><span class="textoAzul12">Correo electr&oacute;nico de Preguntas </span></td>
+                                                <td class="cuadroIngresoBA">jorge.martinez@sercop.gob.ec</td>
+                                            </tr> -->
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="filaTitulo"><span class="textoAzul12">Estado del Proceso</span></td>
+                                                <td class="cuadroIngresoBA">Adjudicado oferente ganador</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="filaTitulo"><span class="textoAzul12">Descripción</span></td>
+                                                <td class="cuadroIngresoBA">SELECCIÓN DE PROVEEDORES PARA LA INCORPORACIÓN DE MEDICAMENTOS EN ELCATÁLOGO ELECTRÓNICO DEL PORTAL DE COMPRASPÚBLICAS</td>
+                                            </tr>
+                                            
+                                            
+                                        </tbody></table>
+                                                                                    <p>
+                                                
+                                                </p><table width="796" border="0">
+                                                    <tbody><tr>
+                                                        <td width="470"><div align="left"><span class="tituloAzulPq"> Detalle: Bienes / Obras /Servicios</span></div></td>
+                                                    </tr>
+                                                </tbody></table>
+                                                
+                                                
+                                                <div align="right"></div><table id="rounded-corner"><thead><tr><th width="10%"> CUM ID </th><th width="10%"> PRINCIPIO ACTIVO </th><th width="10%"> FORMA FARMACÉUTICA </th><th width="10%"> CONCEN. </th><th width="10%"> PRESENTACIÓN</th><th width="5%"> CANTIDAD </th><th width="10%"> PRECIO REF. UNITARIO  </th><th width="10%"> SUBTOTAL  </th></tr></thead><tbody><tr><td>S01EE01LOF014X0             </td><td>Latanoprost</td><td>Líquido oftálmico</td><td>0,005 %</td><td>Caja x frasco gotero x 2,5 mL (mínimo)</td><td>382327</td><td>USD 2.200000</td><td>USD 841,119.400000</td></tr> <tr><th colspan="7">TOTAL</th><th>USD 841,119.400000</th></tr></tbody></table>                                                    <br><p>                                                   
+                                                            </p><div class="tituloAzulPq">Resumen de Puja                                                            </div>
+                                                            <br><p></p>
+                                                                
+                                                            <table border="0" cellspacing="1" cellpadding="1" width="500">
+                                                                <tbody><tr>
+                                                                    <td class="primero1" width="20"></td>  
+                                                                     <td>Última Oferta</td> 
+                                                                </tr>
+                                                                                                                               
+                                                                <tr>
+                                                                    <td class="div1" width="20"></td> 
+                                                                    <td>Posturas puja convencional</td>
+                                                                </tr>
+                                                                 <tr>
+                                                                    <td class="primero1OEI" width="20"></td> 
+                                                                    <td>Ofertas Económicas Iniciales</td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                                <br><p></p>
+                                                             
+                                                                
+                                                                
+                                                                                                                             <br><p> 
+                                                            </p><br><table border="0" cellspacing="1" cellpadding="1">
+                                                                <thead>
+                                                                    <tr><td valign="top"><div></div><div></div><div></div><div></div><div></div><div></div><table border="1" cellspacing="0" cellpadding="0"><tbody><tr><td class="" id="fondoth" align="center">PHARMABRAND S.A.</td></tr><tr><td class="primero1" align="center">USD 0.336000</td></tr><tr><td class="primero2" align="center">Fecha:2022-05-30 10:59:51</td></tr><tr><td class="div1" align="center">USD 1.293600</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:55:26</td></tr><tr><td class="div1" align="center">USD 1.386000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:54:54</td></tr><tr><td class="div1" align="center">USD 1.737120</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:49:02</td></tr><tr><td class="primero1OEI" align="center">USD 2.178000</td></tr><tr><td class="primero2OEI" align="center">Fecha:2022-05-26 14:27:22</td></tr></tbody></table></td><td valign="top"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><table border="1" cellspacing="0" cellpadding="0"><tbody><tr><td class="" id="fondoth" align="center">HERLINGEN CIA. LTDA.</td></tr><tr><td class="primero1" align="center">USD 1.189000</td></tr><tr><td class="primero2" align="center">Fecha:2022-05-30 10:59:56</td></tr><tr><td class="div1" align="center">USD 1.439000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:59:52</td></tr><tr><td class="div1" align="center">USD 2.020000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:56:56</td></tr><tr><td class="div1" align="center">USD 2.130000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:53:51</td></tr><tr><td class="div1" align="center">USD 2.150000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:52:00</td></tr><tr><td class="primero1OEI" align="center">USD 2.178000</td></tr><tr><td class="primero2OEI" align="center">Fecha:2022-05-28 09:08:24</td></tr></tbody></table></td><td valign="top"><div></div><div></div><div></div><div></div><div></div><table border="1" cellspacing="0" cellpadding="0"><tbody><tr><td class="" id="fondoth" align="center">MEDIKACARE CIA.LTDA.</td></tr><tr><td class="primero1" align="center">USD 1.600000</td></tr><tr><td class="primero2" align="center">Fecha:2022-05-30 10:59:56</td></tr><tr><td class="div1" align="center">USD 1.670000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:59:54</td></tr><tr><td class="div1" align="center">USD 1.710000</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:59:50</td></tr><tr><td class="primero1OEI" align="center">USD 2.178000</td></tr><tr><td class="primero2OEI" align="center">Fecha:2022-05-27 17:07:35</td></tr></tbody></table></td><td valign="top"><div></div><div></div><div></div><div></div><div></div><div></div><table border="1" cellspacing="0" cellpadding="0"><tbody><tr><td class="" id="fondoth" align="center">OFTALVIS S.A.</td></tr><tr><td class="primero1" align="center">USD 2.090000</td></tr><tr><td class="primero2" align="center">Fecha:2022-05-30 10:50:54</td></tr><tr><td class="div1" align="center">USD 2.112640</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:50:15</td></tr><tr><td class="div1" align="center">USD 2.134420</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:49:45</td></tr><tr><td class="div1" align="center">USD 2.156200</td></tr><tr><td class="div2" align="center">Fecha:2022-05-30 10:45:58</td></tr><tr><td class="primero1OEI" align="center">USD 2.178000</td></tr><tr><td class="primero2OEI" align="center">Fecha:2022-05-26 14:14:08</td></tr></tbody></table></td><td valign="top"><div></div><div></div><div></div><table border="1" cellspacing="0" cellpadding="0"><tbody><tr><td class="" id="fondoth" align="center">GYKORMED S.A.</td></tr><tr><td class="primero1" align="center">USD 2.156200</td></tr><tr><td class="primero2" align="center">Fecha:2022-05-30 10:59:52</td></tr><tr><td class="primero1OEI" align="center">USD 2.178000</td></tr><tr><td class="primero2OEI" align="center">Fecha:2022-05-26 14:19:06</td></tr></tbody></table></td><td valign="top"><div></div><div></div><table border="1" cellspacing="0" cellpadding="0"><tbody><tr><td class="" id="fondoth" align="center">GENECOM CIA. LTDA.</td></tr><tr><td class="primero1OEI" align="center">USD 2.178000</td></tr><tr><td class="primero2OEI" align="center">Fecha:2022-05-26 16:19:01</td></tr></tbody></table></td>                                                        </tr></thead></table>
+                                                        <!--<iframe id='visor_puja1' src="resumenListaPuja.php?idDetCompra=" frameborder="0" width="770" height="480" scrolling="yes"></iframe>-->
+                                                    <p></p>
+                                                    <!-- Orden final de Puja -->
+                                                    <br><p>
+                                                                                                                            </p><div class="tituloAzulPq"> Orden Final de Puja</div>
+                                                                                                                                <p>
+                                                                        
+                                                                        </p><table width="100%" height="23" border="1" cellpadding="0" cellspacing="0">
+                                                                    <tbody><tr></tr>
+                                                                    <tr><td width="35%"><div align="center" class="filaTitulo"> Proveedor </div></td>
+                                                                    <td width="15%"><div align="center" class="filaTitulo"> Última Oferta (Aplica margen de preferencia) </div></td>
+                                                                    <td width="15%"><div align="center" class="filaTitulo"> Oferta Ingresada (Sin aplicar margen de preferencia) </div></td>
+                                                                    <td width="10%"><div align="center" class="filaTitulo"> % Valor Preferencia </div></td>
+                                                                    <td width="15%"><div align="center" class="filaTitulo"> Fecha Oferta </div></td>
+                                                                    <td width="10%"><div align="center" class="filaTitulo">Estado</div></td>
+                                                                    </tr><tr><td class="textoAzul"><div align="center" class="fondoCeleste">PHARMABRAND S.A.</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 0.336000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 0.400000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">16.000000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">2022-05-30 10:59:51</div></td><td class="textoAzul"><div class="fondoCeleste">Ganador</div></td></tr><tr><td class="textoAzul"><div align="center" class="fondoCeleste">HERLINGEN CIA. LTDA.</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 1.189000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 1.189000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">0.000000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">2022-05-30 10:59:56</div></td><td class="textoAzul"><div class="fondoCeleste"></div></td></tr><tr><td class="textoAzul"><div align="center" class="fondoCeleste">MEDIKACARE CIA.LTDA.</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 1.600000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 1.600000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">0.000000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">2022-05-30 10:59:56</div></td><td class="textoAzul"><div class="fondoCeleste"></div></td></tr><tr><td class="textoAzul"><div align="center" class="fondoCeleste">OFTALVIS S.A.</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 2.090000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 2.090000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">0.000000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">2022-05-30 10:50:54</div></td><td class="textoAzul"><div class="fondoCeleste"></div></td></tr><tr><td class="textoAzul"><div align="center" class="fondoCeleste">GYKORMED S.A.</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 2.156200</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">USD 2.156200</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">0.000000</div></td><td class="textoAzul"><div align="center" class="fondoCeleste">2022-05-30 10:59:52</div></td><td class="textoAzul"><div class="fondoCeleste"></div></td></tr>                                                                </tbody></table>
+                                                            
+                                                            <p></p>
+                                                                                                                        <p>
+                                                            
+                                                                <!-- aqui va el ahorro-->
+                                                                </p><div class="tituloAzulPq" id="divadjudicacion">Adjudicación</div><table width="100%" border="1" cellpadding="0" cellspacing="0" id="tableadjudicacion"><tbody><tr><td width="32%" class="filaTitulo"><div align="center" id="div1adjudicacion"><span class="Estilo1"></span>El proveedor Adjudicado es: </div></td><td class="filaTitulo"><div align="center" class="Estilo1">PHARMABRAND S.A.</div></td></tr><tr><td class="textoAzul">Valor Adjudicado </td><td><div align="center" class="textoAzul12">USD 0.400000</div><div align="center" class="textoAzul12"></div></td></tr><tr><td class="textoAzul">Razón de adjudicación</td><td><div align="center" class="textoAzul12"></div><div align="center" class="textoAzul12">Por haber cumplido con la verificacin de la documentacion e informacion para la incorporacion en el catalogo electronico del portal de COMPRASPUBLICAS del medicamento DCI LATANOPROST  FORMA FARMACEUTICA LIQUIDO OFTALMICO  CONCENTRACION    PRESENTACION COMERCIAL CAJA X FRASCO GOTERO X  ML MINIMO</div></td></tr><tr><td class="textoAzul">Fecha Adjudicación </td><td><div align="center" class="textoAzul12">2022-08-05 08:32:27</div><div align="center"></div></td></tr></tbody></table>                                                                <p>
+                                                                                                                                    
+                                                                                                                                            <!-- GRAFICO -->
+                                                                        </p><div class="tituloAzulPq">Gráfico OEI</div>
+                                                                        <p><br>
+                                                                        <!--	<img src="/var/www/html/ProcesoContratacion/app/webroot/grafico.php?id=1309" align="middle" scrolling="auto"/>-->
+                                                                        <!--    <img src="../grafico.php?id=1309&rg=&epg=" align="middle" scrolling="auto"/>  -->
+                                                                            </p><div id="container_oei" style="min-width: 250px; height: 250px; margin: 0 auto" data-highcharts-chart="1"><div class="highcharts-container" id="highcharts-4" style="position: relative; overflow: hidden; width: 1231px; height: 250px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1231" height="250"><desc>Created with Highcharts 4.2.3</desc><defs><clipPath id="highcharts-5"><rect x="0" y="0" width="1165" height="71"></rect></clipPath></defs><rect x="0" y="0" width="1231" height="250" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 56 132.5 L 1221 132.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 56 60.5 L 1221 60.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 288.5 132 L 288.5 142" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 521.5 132 L 521.5 142" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 754.5 132 L 754.5 142" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 987.5 132 L 987.5 142" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1221.5 132 L 1221.5 142" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 55.5 132 L 55.5 142" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 56 132.5 L 1221 132.5" stroke="#C0D0E0" stroke-width="1" zIndex="7"></path></g><g class="highcharts-axis" zIndex="2"><text x="24.0390625" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 24.0390625 96.5)" class=" highcharts-yaxis-title" style="color:#707070;fill:#707070;" y="96.5"><tspan>Oferta ($)</tspan></text></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-series-0 highcharts-tracker" zIndex="0.1" transform="translate(56,61) scale(1 1)" style="" clip-path="url(#highcharts-5)"><rect x="60.5" y="32.5" width="112" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="293.5" y="32.5" width="112" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="526.5" y="32.5" width="112" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="759.5" y="32.5" width="112" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect><rect x="992.5" y="32.5" width="112" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"></rect></g><g class="highcharts-markers highcharts-series-0" zIndex="0.1" transform="translate(56,61) scale(1 1)" clip-path="none"></g></g><text x="616" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1167px;" y="24"><tspan style="font-weight:bold"> Oferta Económica Inicial </tspan></text><text x="616" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1167px;" y="46">SICM-210-2022</text><g class="highcharts-data-labels highcharts-series-0 highcharts-tracker" zIndex="6" visibility="visible" transform="translate(56,61) scale(1 1)" opacity="1" style=""><text x="119.5" y="-9999" r="0" padding="5" zIndex="1" transform="translate(0,0) rotate(-90 119.5 -9999)" style="color:#FFFFFF;font-size:8px;font-weight:bold;text-shadow:0 0 6px #000000, 0 0 3px #000000;font-family:Verdana, sans-serif;fill:#FFFFFF;text-rendering:geometricPrecision;" text-anchor="end"><tspan>2.17800</tspan></text><text x="352.5" y="-9999" r="0" padding="5" zIndex="1" transform="translate(0,0) rotate(-90 352.5 -9999)" style="color:#FFFFFF;font-size:8px;font-weight:bold;text-shadow:0 0 6px #000000, 0 0 3px #000000;font-family:Verdana, sans-serif;fill:#FFFFFF;text-rendering:geometricPrecision;" text-anchor="end"><tspan>2.17800</tspan></text><text x="585.5" y="-9999" r="0" padding="5" zIndex="1" transform="translate(0,0) rotate(-90 585.5 -9999)" style="color:#FFFFFF;font-size:8px;font-weight:bold;text-shadow:0 0 6px #000000, 0 0 3px #000000;font-family:Verdana, sans-serif;fill:#FFFFFF;text-rendering:geometricPrecision;" text-anchor="end"><tspan>2.17800</tspan></text><text x="818.5" y="-9999" r="0" padding="5" zIndex="1" transform="translate(0,0) rotate(-90 818.5 -9999)" style="color:#FFFFFF;font-size:8px;font-weight:bold;text-shadow:0 0 6px #000000, 0 0 3px #000000;font-family:Verdana, sans-serif;fill:#FFFFFF;text-rendering:geometricPrecision;" text-anchor="end"><tspan>2.17800</tspan></text><text x="1051.5" y="-9999" r="0" padding="5" zIndex="1" transform="translate(0,0) rotate(-90 1051.5 -9999)" style="color:#FFFFFF;font-size:8px;font-weight:bold;text-shadow:0 0 6px #000000, 0 0 3px #000000;font-family:Verdana, sans-serif;fill:#FFFFFF;text-rendering:geometricPrecision;" text-anchor="end"><tspan>2.17800</tspan></text></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="174.85702260395516" style="color:#606060;cursor:default;font-size:10px;font-family:Verdana, sans-serif;fill:#606060;width:250px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 174.85702260395516 147)" y="147" opacity="1"><tspan>PHARMABRAND S.A.</tspan></text><text x="407.8570226039551" style="color:#606060;cursor:default;font-size:10px;font-family:Verdana, sans-serif;fill:#606060;width:250px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 407.8570226039551 147)" y="147" opacity="1"><tspan>HERLINGEN CIA. LTDA.</tspan></text><text x="640.8570226039551" style="color:#606060;cursor:default;font-size:10px;font-family:Verdana, sans-serif;fill:#606060;width:250px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 640.8570226039551 147)" y="147" opacity="1"><tspan>MEDIKACARE CIA.LTDA.</tspan></text><text x="873.8570226039551" style="color:#606060;cursor:default;font-size:10px;font-family:Verdana, sans-serif;fill:#606060;width:250px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 873.8570226039551 147)" y="147" opacity="1"><tspan>OFTALVIS S.A.</tspan></text><text x="1106.857022603955" style="color:#606060;cursor:default;font-size:10px;font-family:Verdana, sans-serif;fill:#606060;width:250px;text-overflow:ellipsis;" text-anchor="end" transform="translate(0,0) rotate(-45 1106.857022603955 147)" y="147" opacity="1"><tspan>GYKORMED S.A.</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="41" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="137" opacity="1">0</text><text x="41" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="66" opacity="1">4</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"></text></g><text x="1221" text-anchor="end" zIndex="8" style="cursor:pointer;color:#909090;font-size:9px;fill:#909090;" y="245"></text></svg></div></div>  
+                                                                            <div class="tituloAzulPq">Gráfico Resumen Puja</div>
+                                                                            <div id="container_sicm" style="min-width: 300px; height: 450px; margin: 0 auto" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1231px; height: 450px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1231" height="450"><desc>Created with Highcharts 4.2.3</desc><defs><clipPath id="highcharts-1"><rect x="0" y="0" width="1155" height="297"></rect></clipPath></defs><rect x="0" y="0" width="1231" height="450" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 66 358.5 L 1221 358.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 299.5 L 1221 299.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 239.5 L 1221 239.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 180.5 L 1221 180.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 120.5 L 1221 120.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 66 60.5 L 1221 60.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 79.5 358 L 79.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 160.5 358 L 160.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 241.5 358 L 241.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 322.5 358 L 322.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 403.5 358 L 403.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 484.5 358 L 484.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 565.5 358 L 565.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 647.5 358 L 647.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 728.5 358 L 728.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 809.5 358 L 809.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 890.5 358 L 890.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 971.5 358 L 971.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1052.5 358 L 1052.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1133.5 358 L 1133.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 1214.5 358 L 1214.5 368" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><text x="643.5" zIndex="7" text-anchor="middle" transform="translate(0,0)" class=" highcharts-xaxis-title" style="color:#707070;fill:#707070;" y="396">Tiempo</text><path fill="none" d="M 66 358.5 L 1221 358.5" stroke="#C0D0E0" stroke-width="1" zIndex="7"></path></g><g class="highcharts-axis" zIndex="2"><text x="23.6015625" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 23.6015625 209.5)" class=" highcharts-yaxis-title" style="color:#707070;fill:#707070;" y="209.5"><tspan>Oferta ($)</tspan></text></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-series-0" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 259.95472413309 90.630144 C 259.95472413309 90.630144 545.3400954653938 113.02346880000002 735.5970096869297 132.34320000000002 C 752.8930927979784 134.0995392 761.5411343535028 137.94431999999998 778.8372174645515 143.32031999999998 C 922.0704057279236 187.84032 1136.920188122982 257.0832 1136.920188122982 257.0832" stroke="#7cb5ec" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 249.95472413309 90.630144 L 259.95472413309 90.630144 C 259.95472413309 90.630144 545.3400954653938 113.02346880000002 735.5970096869297 132.34320000000002 C 752.8930927979784 134.0995392 761.5411343535028 137.94431999999998 778.8372174645515 143.32031999999998 C 922.0704057279236 187.84032 1136.920188122982 257.0832 1136.920188122982 257.0832 L 1146.920188122982 257.0832" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-series-0 highcharts-tracker" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#7cb5ec" d="M 1136 253.08319999999998 C 1141.328 253.08319999999998 1141.328 261.0832 1136 261.0832 C 1130.672 261.0832 1130.672 253.08319999999998 1136 253.08319999999998 Z"></path><path fill="#7cb5ec" d="M 778 139.32031999999998 C 783.328 139.32031999999998 783.328 147.32031999999998 778 147.32031999999998 C 772.672 147.32031999999998 772.672 139.32031999999998 778 139.32031999999998 Z"></path><path fill="#7cb5ec" d="M 735 128.34320000000002 C 740.328 128.34320000000002 740.328 136.34320000000002 735 136.34320000000002 C 729.672 136.34320000000002 729.672 128.34320000000002 735 128.34320000000002 Z"></path><path fill="#7cb5ec" d="M 259 86.630144 C 264.328 86.630144 264.328 94.630144 259 94.630144 C 253.672 94.630144 253.672 86.630144 259 86.630144 Z"></path></g><g class="highcharts-series highcharts-series-1" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 500.4783798961112 41.58000000000001 C 500.4783798961112 41.58000000000001 590.4720623332865 41.639400000000016 650.4678506247368 43.95600000000002 C 750.4608311104872 47.817000000000014 800.4573213533624 43.95600000000002 900.4503018391127 57.024 C 995.5787589498807 70.09199999999998 1043.1429875052647 87.43521600000005 1138.2714446160326 126.04679999999999 C 1140.4334550049139 126.92433600000007 1143.6764705882354 155.7468 1143.6764705882354 155.7468" stroke="#434348" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 490.4783798961112 41.58000000000001 L 500.4783798961112 41.58000000000001 C 500.4783798961112 41.58000000000001 590.4720623332865 41.639400000000016 650.4678506247368 43.95600000000002 C 750.4608311104872 47.817000000000014 800.4573213533624 43.95600000000002 900.4503018391127 57.024 C 995.5787589498807 70.09199999999998 1043.1429875052647 87.43521600000005 1138.2714446160326 126.04679999999999 C 1140.4334550049139 126.92433600000007 1143.6764705882354 155.7468 1143.6764705882354 155.7468 L 1153.6764705882354 155.7468" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-series-1 highcharts-tracker" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#434348" d="M 1143 151.7468 L 1147 155.7468 1143 159.7468 1139 155.7468 Z"></path><path fill="#434348" d="M 1138 122.04679999999999 L 1142 126.04679999999999 1138 130.0468 1134 126.04679999999999 Z"></path><path fill="#434348" d="M 900 53.024 L 904 57.024 900 61.024 896 57.024 Z"></path><path fill="#434348" d="M 650 39.95600000000002 L 654 43.95600000000002 650 47.95600000000002 646 43.95600000000002 Z"></path><path fill="#434348" d="M 500 37.58000000000001 L 504 41.58000000000001 500 45.58000000000001 496 41.58000000000001 Z"></path></g><g class="highcharts-series highcharts-series-2" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 1135.5689316299313 93.852 C 1135.5689316299313 93.852 1138.8119472132528 95.11920000000015 1140.9739576021339 98.60400000000001 C 1142.0549627965745 100.34640000000013 1143.6764705882354 106.91999999999999 1143.6764705882354 106.91999999999999" stroke="#90ed7d" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 1125.5689316299313 93.852 L 1135.5689316299313 93.852 C 1135.5689316299313 93.852 1138.8119472132528 95.11920000000015 1140.9739576021339 98.60400000000001 C 1142.0549627965745 100.34640000000013 1143.6764705882354 106.91999999999999 1143.6764705882354 106.91999999999999 L 1153.6764705882354 106.91999999999999" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-series-2 highcharts-tracker" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#90ed7d" d="M 1139 102.91999999999999 L 1147 102.91999999999999 1147 110.91999999999999 1139 110.91999999999999 Z"></path><path fill="#90ed7d" d="M 1136 94.60400000000001 L 1144 94.60400000000001 1144 102.60400000000001 1136 102.60400000000001 Z"></path><path fill="#90ed7d" d="M 1131 89.852 L 1139 89.852 1139 97.852 1131 97.852 Z"></path></g><g class="highcharts-series highcharts-series-3" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 11.323529411764707 40.84343999999999 C 11.323529411764707 40.84343999999999 195.36466376526744 41.60256367937742 318.0587533342693 43.430904 C 334.27383125087744 43.67253487937743 342.38137020918157 45.10061217391305 358.5964481257897 46.01836800000001 C 379.67604941738034 47.21145057391306 411.29545135476627 48.70800000000003 411.29545135476627 48.70800000000003" stroke="#f7a35c" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 1.3235294117647065 40.84343999999999 L 11.323529411764707 40.84343999999999 C 11.323529411764707 40.84343999999999 195.36466376526744 41.60256367937742 318.0587533342693 43.430904 C 334.27383125087744 43.67253487937743 342.38137020918157 45.10061217391305 358.5964481257897 46.01836800000001 C 379.67604941738034 47.21145057391306 411.29545135476627 48.70800000000003 411.29545135476627 48.70800000000003 L 421.29545135476627 48.70800000000003" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-series-3 highcharts-tracker" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#f7a35c" d="M 411 44.70800000000003 L 415 52.70800000000003 407 52.70800000000003 Z"></path><path fill="#f7a35c" d="M 358 42.01836800000001 L 362 50.01836800000001 354 50.01836800000001 Z"></path><path fill="#f7a35c" d="M 318 39.430904 L 322 47.430904 314 47.430904 Z"></path><path fill="#f7a35c" d="M 11 36.84343999999999 L 15 44.84343999999999 7 44.84343999999999 Z"></path></g><g class="highcharts-series highcharts-series-4" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-1)"><path fill="none" d="M 1138.2714446160326 40.84343999999999" stroke="#8085e9" stroke-width="2" zIndex="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 1128.2714446160326 40.84343999999999 L 1138.2714446160326 40.84343999999999 L 1148.2714446160326 40.84343999999999" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" zIndex="2" class=" highcharts-tracker" style=""></path></g><g class="highcharts-markers highcharts-series-4 highcharts-tracker" zIndex="0.1" transform="translate(66,61) scale(1 1)" clip-path="url(#highcharts-2)" style=""><path fill="#8085e9" d="M 1134 36.84343999999999 L 1142 36.84343999999999 1138 44.84343999999999 Z"></path></g></g><text x="616" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:1167px;" y="24"><tspan style="font-weight:bold"> Resumen PUJA </tspan></text><text x="616" text-anchor="middle" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:1167px;" y="46">SICM-210-2022</text><g class="highcharts-legend" zIndex="7" transform="translate(219,410)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#7cb5ec" stroke-width="2"></path><path fill="#7cb5ec" d="M 8 7 C 13.328 7 13.328 15 8 15 C 2.6719999999999997 15 2.6719999999999997 7 8 7 Z"></path><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15"><tspan>PHARMABRAND S.A.</tspan></text></g><g class="highcharts-legend-item" zIndex="1" transform="translate(171.5546875,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#434348" stroke-width="2"></path><path fill="#434348" d="M 8 7 L 12 11 8 15 4 11 Z"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>HERLINGEN CIA. LTDA.</tspan></text></g><g class="highcharts-legend-item" zIndex="1" transform="translate(351.7734375,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#90ed7d" stroke-width="2"></path><path fill="#90ed7d" d="M 4 7 L 12 7 12 15 4 15 Z"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>MEDIKACARE CIA.LTDA.</tspan></text></g><g class="highcharts-legend-item" zIndex="1" transform="translate(539.453125,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#f7a35c" stroke-width="2"></path><path fill="#f7a35c" d="M 8 7 L 12 15 4 15 Z"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>OFTALVIS S.A.</tspan></text></g><g class="highcharts-legend-item" zIndex="1" transform="translate(666.1171875,3)"><path fill="none" d="M 0 11 L 16 11" stroke="#8085e9" stroke-width="2"></path><path fill="#8085e9" d="M 4 7 L 12 7 8 15 Z"></path><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2"><tspan>GYKORMED S.A.</tspan></text></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="80.02604239786606" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:46</text><text x="161.1014319809069" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:47</text><text x="242.17682156394778" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:48</text><text x="323.25221114698866" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:49</text><text x="404.3276007300295" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:50</text><text x="485.40299031307035" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:51</text><text x="566.4783798961112" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:52</text><text x="647.553769479152" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:53</text><text x="728.6291590621929" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:54</text><text x="809.7045486452338" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:55</text><text x="890.7799382282747" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:56</text><text x="971.8553278113154" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:57</text><text x="1052.9307173943562" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:58</text><text x="1134.0061069773972" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">10:59</text><text x="1205.34765625" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:73px;text-overflow:clip;" text-anchor="middle" transform="translate(0,0)" y="377" opacity="1">11:00</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="51" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="363" opacity="1">0</text><text x="51" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="303" opacity="1">0.5</text><text x="51" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="244" opacity="1">1</text><text x="51" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="184" opacity="1">1.5</text><text x="51" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="125" opacity="1">2</text><text x="51" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:396px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="66" opacity="1">2.5</text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;" transform="translate(0,-9999)"><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"></path><path fill="none" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 13.5 0.5 C 16.5 0.5 16.5 0.5 16.5 3.5 L 16.5 13.5 C 16.5 16.5 16.5 16.5 13.5 16.5 L 3.5 16.5 C 0.5 16.5 0.5 16.5 0.5 13.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"></text></g><text x="1221" text-anchor="end" zIndex="8" style="cursor:pointer;color:#909090;font-size:9px;fill:#909090;" y="445"></text></svg></div></div>  
+                                                                        <p></p><p><br>
+                                                                    <!-- ***************************VER EL ADJUDICATARIO DEL RESUMEN DE LA SUBASTA ************************************-->
+                                                                </p>
+                                                                                                                                <p>
+                                                                </p>
+
+                                                            <div class="buttons">
+                                                            <!-- <a href="#" onClick="btnRegresar('xsXZ0aNP7q6kPWBRU8ruTyUOE8mWsYi4Qlm8TYLP6-g,', 'PC', 'cpe')">
+                                                             <img src="../img/icon-back.png " />Regresar                                                              </a>-->
+                                                               <a href="informacionProcesoContratacion2.cpe?idSoliCompra=bHlqHYBiRu6dhMkHamvymePPijBg2AmzuEc2-ZCDrf8,"> 
+                                                                <img src="../img/icon-back.png "> Regresar </a>
+                                                            </div>                                                                        
+                                                                        
+                                                                        
+                                                                </div></div>
+
+<input id="ci_ruc_tramite" type="hidden" value="">
+<input id="razon_social_tramite" type="hidden" value="">
+<input id="usuario_tramite" type="hidden" value="">
+<input id="tipo_tramite" type="hidden" value="">
+<input id="provincia_tramite" type="hidden" value="">
+<div id="footer">
+	<div class="main">
+Copyright © 2008 - 2025 Servicio Nacional de Contratación Pública.
+</div>
+</div>
+                                                                
+                                                                
+                                                            </div></body></html>
